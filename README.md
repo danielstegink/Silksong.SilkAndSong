@@ -51,3 +51,6 @@ So at level 4, Hornet will have:
 - +16.67% spell/tool damage
 - 1 Mask regenerated every 40 seconds
 - 1 Silk regenerated every 27.5 seconds
+
+## Special Thanks
+Logo by MsGreen419
