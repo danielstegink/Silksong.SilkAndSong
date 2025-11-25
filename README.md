@@ -35,9 +35,8 @@ completed.
 
 ### XP Requirements
 Levelling up is a slow process; each level requires significantly more
-XP than the last. You could reach level 1 as early as your 
-first boss, but you probably won't reach level 10 until halfway through 
-Act 2.
+XP than the last. You can reach level 1 as early as your first boss, 
+but you probably won't reach level 10 until near the end of Act 3.
 
 ## Perks
 At each level, Hornet gets the following bonuses:

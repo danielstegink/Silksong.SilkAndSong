@@ -2,6 +2,7 @@
 using SilkAndSong.Helpers;
 using System.Collections;
 using System.Diagnostics;
+using TeamCherry.Localization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,15 +42,19 @@ namespace SilkAndSong
             if (newLevel != Level)
             {
                 SilkAndSong.instance.Log($"Level increased from {Level} to {newLevel}");
-                Level = newLevel;
                 if (triggerFlair)
                 {
-                    HeroController.instance.StartCoroutine(PopupMessage());
+                    HeroController.instance.StartCoroutine(PopupMessage(newLevel));
                 }
+                Level = newLevel;
             }
         }
 
-        private static IEnumerator PopupMessage()
+        /// <summary>
+        /// Handles the celebratory flair when the player's level increases
+        /// </summary>
+        /// <returns></returns>
+        private static IEnumerator PopupMessage(int newLevel)
         {
             // Create the canvas if we haven't already
             if (canvas == null)
@@ -62,7 +67,15 @@ namespace SilkAndSong
             CanvasUtil.RectData dimensions = new CanvasUtil.RectData(new Vector2(0, 50), new Vector2(0, 45),
                                                          new Vector2(0, 0), new Vector2(1, 0),
                                                          new Vector2(0.5f, 0.5f));
-            GameObject textPanel = CanvasUtil.CanvasUtil.CreateTextPanel(canvas, $"Level {Level} Unlocked!", 
+            string message = $"LEVEL UP! {Level} -> {newLevel}";
+            LocalisedString messageString = new LocalisedString($"Mods.{SilkAndSong.Id}", "TXT_MESSAGE");
+            if (messageString.Exists)
+            {
+                message = messageString.ToString()
+                                        .Replace("OLD_LEVEL", Level.ToString())
+                                        .Replace("NEW_LEVEL", newLevel.ToString());
+            }
+            GameObject textPanel = CanvasUtil.CanvasUtil.CreateTextPanel(canvas, message, 
                                                                             42, TextAnchor.MiddleCenter, dimensions);
             Text text = textPanel.GetComponent<Text>();
             text.font = CanvasUtil.Fonts.TrajanBold;

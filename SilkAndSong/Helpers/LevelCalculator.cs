@@ -14,15 +14,19 @@ namespace SilkAndSong.Helpers
             //SilkAndSong.instance.Log($"Total XP: {totalXp}");
 
             // Player starts at lv 0 (weird, I know)
-            // It costs 20 XP to reach lv 1, then 150% the previous lv after that
-            // So 20 + 30 = 50 for lv 2, 50 + 45 = 95 for lv 3, etc
+            // Want to reach lv 1 after beating Moss Mother, so 20 XP is a good place for that
+            // Don't want to reach lv 10 until near end of game, so multiply requirement w/ each level
             int level = 0;
             float xpRequirement = 20;
             while (totalXp >= xpRequirement)
             {
+                //SilkAndSong.instance.Log($"Next level: {level + 1}");
+                //SilkAndSong.instance.Log($"XP required: {xpRequirement}");
+                //SilkAndSong.instance.Log($"XP remaining: {totalXp}");
+
                 level++;
                 totalXp -= xpRequirement;
-                xpRequirement *= 1.5f;
+                xpRequirement *= 1.8f;
             }
             //SilkAndSong.instance.Log($"New Level: {level}");
             //SilkAndSong.instance.Log($"XP to next Level: {xpRequirement - totalXp}");
@@ -51,7 +55,7 @@ namespace SilkAndSong.Helpers
             { "Bone Circler", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Bone Circler Vicious", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Bone Hopper", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
-            { "Bone Hopper Giant", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
+            { "Bone Hopper Giant", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act3) },
             { "Bone Spitter", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Bone Roller", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Bone Thumper", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act1) },
@@ -75,7 +79,7 @@ namespace SilkAndSong.Helpers
             { "Rosary Pilgrim", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act1) },
             { "Rosary Thief", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Tar Slug", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
-            { "Tar Slug Huge", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
+            { "Tar Slug Huge", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act2) },
             { "Dock Worker", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Dock Flyer", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Dock Bomber", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
@@ -95,7 +99,7 @@ namespace SilkAndSong.Helpers
             { "Bone Hunter Fly", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Bone Hunter Throw", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act1) },
             { "Bone Hunter Trapper", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act3) },
-            { "Bone Hunter Chief", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
+            { "Bone Hunter Chief", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act3) },
             { "Hunter Queen", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act3) },
             { "Mite", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Mitefly", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
@@ -132,7 +136,7 @@ namespace SilkAndSong.Helpers
             { "Swamp Muckman Tall", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Swamp Shaman", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act2) },
             { "Swamp Barnacle", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
-            { "Swamp Ductsucker", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
+            { "Swamp Ductsucker", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act2) },
             { "Pond Skater", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Pilgrim Fisher", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Shellwood Gnat", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
@@ -155,7 +159,7 @@ namespace SilkAndSong.Helpers
             { "Coral Judge Child", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Coral Judge", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Last Judge", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act1) },
-            { "Coral Spike Goomba", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
+            { "Coral Spike Goomba", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Coral Conch Shooter", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act1) },
             { "Coral Conch Stabber", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Coral Conch Driller", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
@@ -165,17 +169,17 @@ namespace SilkAndSong.Helpers
             { "Coral Swimmer Fat", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Poke Swimmer", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Spike Swimmer", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
-            { "Coral Swimmer Small", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
+            { "Coral Swimmer Small", new EnemyData(EnemyData.EnemyType.None, EnemyData.EnemyLevel.Act3) },
             { "Coral Big Jellyfish", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Coral Warrior", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Coral Flyer", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Coral Flyer Throw", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
-            { "Coral Brawler", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
+            { "Coral Brawler", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act3) },
             { "Coral Hunter", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Coral Bubble Brute", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Coral King", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act3) },
             { "Coral Warrior Grey", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act3) },
-            { "Zap Core Enemy", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
+            { "Zap Core Enemy", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act2) },
             { "Citadel Bat", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Citadel Bat Large", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Mite Heavy", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
@@ -220,7 +224,7 @@ namespace SilkAndSong.Helpers
             { "Lightbearer", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Scrollkeeper", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act2) },
             { "Scholar", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
-            {  "Trobbio", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act2) },
+            { "Trobbio", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act2) },
             { "Tormented Trobbio", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act3) },
             { "Slab Prisoner Leaper New", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
             { "Slab Prisoner Fly New", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
@@ -255,7 +259,7 @@ namespace SilkAndSong.Helpers
             { "Gloom Beast", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act3) },
             { "Void Tendrils", new EnemyData(EnemyData.EnemyType.None, EnemyData.EnemyLevel.Act3) },
             { "Black Thread Core", new EnemyData(EnemyData.EnemyType.Miniboss, EnemyData.EnemyLevel.Act3) },
-            { "Abyss Mass", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act2) },
+            { "Abyss Mass", new EnemyData(EnemyData.EnemyType.Boss, EnemyData.EnemyLevel.Act2) },
             { "White Palace Fly", new EnemyData(EnemyData.EnemyType.None, EnemyData.EnemyLevel.Act3) },
             { "Centipede Trap", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
             { "Spike Lazy Flyer", new EnemyData(EnemyData.EnemyType.Enemy, EnemyData.EnemyLevel.Act3) },
@@ -312,7 +316,7 @@ namespace SilkAndSong.Helpers
             //SilkAndSong.instance.Log($"{enemyXp} XP from {enemyCount} enemies");
             //SilkAndSong.instance.Log($"{minibossXp} XP from {minibossCount} minibosses");
             //SilkAndSong.instance.Log($"{bossXp} XP from {bossCount} bosses");
-            
+
             int totalXp = enemyXp + minibossXp + bossXp;
             int totalEnemies = enemyCount + minibossCount + bossCount;
             //SilkAndSong.instance.Log($"{totalXp} XP from {totalEnemies} enemies");
@@ -387,14 +391,14 @@ namespace SilkAndSong.Helpers
             { "Courier Delivery Pilgrims Rest", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
             { "Courier Delivery Songclave", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
             { "Courier Delivery Fleatopia", new QuestData(QuestData.Difficulty.Hard, QuestData.QuestLevel.Act2) },
-            { "Courier Delivery Mask Maker", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
+            { "Courier Delivery Mask Maker", new QuestData(QuestData.Difficulty.Hard, QuestData.QuestLevel.Act2) },
             { "Courier Delivery Dustpens Slave", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
             { "Courier Delivery Fixer", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act3) },
             { "Crow Feathers", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act1) },
             { "Beastfly Hunt", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
             { "Shell Flowers", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act1) },
             { "Wood Witch Curse", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
-            { "Doctor Curse Cure", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
+            { "Doctor Curse Cure", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
             { "Extractor Blue", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act1) },
             { "Extractor Blue Worms", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act3) },
             { "Roach Killing", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act1) },
@@ -407,17 +411,17 @@ namespace SilkAndSong.Helpers
             { "Broodmother Hunt", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
             { "Great Gourmand", new QuestData(QuestData.Difficulty.Hard, QuestData.QuestLevel.Act2) },
             { "Save Sherma", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
-            { "Song Knight", new QuestData(QuestData.Difficulty.Hard, QuestData.QuestLevel.Act2) },
+            { "Song Knight", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
             { "Huntress Quest", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
             { "Huntress Quest Runt", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
             { "Shakra Final Quest", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
             { "Soul Snare", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act2) },
             { "Pinstress Battle", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act3) },
-            { "Sprintmaster Race", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act3) },
+            { "Sprintmaster Race", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act3) },
             { "Garmond Black Threaded", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act3) },
             { "Anguish and Misery", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act3) },
             { "Ant Trapper", new QuestData(QuestData.Difficulty.Hard, QuestData.QuestLevel.Act3) },
-            { "Flea Games", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act3) },
+            { "Flea Games", new QuestData(QuestData.Difficulty.Hard, QuestData.QuestLevel.Act3) },
             { "Steel Sentinel Pt2", new QuestData(QuestData.Difficulty.Medium, QuestData.QuestLevel.Act2) },
             { "Mr Mushroom", new QuestData(QuestData.Difficulty.Hard, QuestData.QuestLevel.Act3) },
             { "Destroy Thread Cores", new QuestData(QuestData.Difficulty.Easy, QuestData.QuestLevel.Act3) },

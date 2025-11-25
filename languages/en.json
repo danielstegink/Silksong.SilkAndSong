@@ -1,4 +1,5 @@
 {
 	"TXT_NAME": "Text Color",
-	"TXT_DESC": "The color of the level-up message"
+	"TXT_DESC": "The color of the level-up message",
+	"TXT_MESSAGE": "LEVEL UP! OLD_LEVEL -> NEW_LEVEL"
 }

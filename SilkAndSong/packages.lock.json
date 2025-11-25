@@ -53,9 +53,9 @@
       },
       "Silksong.CanvasUtil": {
         "type": "Direct",
-        "requested": "[0.1.1, )",
-        "resolved": "0.1.1",
-        "contentHash": "Q2r67amRCEawLnNQHS602ZHfPlzzjqPTDv3xXoh0xF6gE0CgNbb/kBw52C7JooUAhRiLbEZnCUu9nn4E1LkLPg==",
+        "requested": "[1.0.0, )",
+        "resolved": "1.0.0",
+        "contentHash": "RdsMgqwqjuIe277uk8k5TjDSaDrYN/pErjnnCqy7FJbBxN0INMQmL09CPeVpk/ZcEAnVXsPOaokcnMIfjoa7YA==",
         "dependencies": {
           "BepInEx.Core": "5.4.21",
           "HarmonyX": "2.9.0",
