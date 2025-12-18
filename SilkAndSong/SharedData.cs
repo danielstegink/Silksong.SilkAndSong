@@ -1,5 +1,7 @@
 ﻿using DanielSteginkUtils.Utilities;
 using SilkAndSong.Helpers;
+using SilkAndSong.Helpers.GetLevel;
+using SilkAndSong.Helpers.UI;
 using System.Collections;
 using System.Diagnostics;
 using TeamCherry.Localization;
@@ -10,25 +12,21 @@ namespace SilkAndSong
 {
     public static class SharedData
     {
+        #region Level Tracking
         /// <summary>
         /// Stores the player's current level
         /// </summary>
-        public static int Level { get; private set; } = 0;
+        public static int Level { get; set; } = 0;
 
         /// <summary>
-        /// Timer for tracking when to increase health
+        /// Tracks how much XP until the next level-up
         /// </summary>
-        public static Stopwatch healthTimer { get; set; } = new Stopwatch();
+        public static int XpToNextLevel { get; set; } = 0;
 
         /// <summary>
-        /// Timer for tracking when to increase Silk
+        /// Stores the SNS quest for ease of reference
         /// </summary>
-        public static Stopwatch silkTimer { get; set; } = new Stopwatch();
-
-        /// <summary>
-        /// Stores the canvas we use to display the text
-        /// </summary>
-        private static GameObject? canvas;
+        internal static SnsQuest? quest;
 
         /// <summary>
         /// Updates the player's level
@@ -39,16 +37,100 @@ namespace SilkAndSong
         public static void UpdateLevel(bool triggerFlair = true)
         {
             int newLevel = LevelCalculator.GetLevel();
+            if (quest != null)
+            {
+                try
+                {
+                    quest.Get();
+                }
+                catch (System.Exception ex)
+                {
+                    SilkAndSong.instance.Log($"Error updating quest: {ex.Message}\n{ex.StackTrace}");
+                }
+            }
+
             if (newLevel != Level)
             {
                 SilkAndSong.instance.Log($"Level increased from {Level} to {newLevel}");
+
                 if (triggerFlair)
                 {
-                    HeroController.instance.StartCoroutine(PopupMessage(newLevel));
+                    //HeroController.instance.StartCoroutine(PopupMessage(newLevel));
+                    if (quest != null)
+                    {
+                        try
+                        {
+                            // TODO - figure out how to trigger the "progress quest" popup
+                            //quest.Get();
+                        }
+                        catch (System.Exception ex)
+                        {
+                            SilkAndSong.instance.Log($"Error updating quest: {ex.Message}\n{ex.StackTrace}");
+                        }
+                    }
                 }
                 Level = newLevel;
             }
         }
+        #endregion
+
+        #region Perks
+        /// <summary>
+        /// Percent bonus in needle damage for the given level
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        internal static float GetNailBonus(int level)
+        {
+            return Level * NotchCosts.NailDamagePerNotch() / 4;
+        }
+
+        /// <summary>
+        /// Percent bonus in spell/tool damage for the given level
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        internal static float GetSpellBonus(int level)
+        {
+            return Level * NotchCosts.SpellDamagePerNotch() / 4;
+        }
+
+        /// <summary>
+        /// How long (in seconds) to wait before regenerating another mask
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        internal static float GetMaskSeconds(int level)
+        {
+            return 4 * NotchCosts.PassiveHealTime() / Level;
+        }
+
+        /// <summary>
+        /// How long (in seconds) to wait before regenerating a notch of Silk
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
+        internal static float GetSilkSeconds(int level)
+        {
+            return 4 * NotchCosts.PassiveSilkTime() / Level;
+        }
+
+        /// <summary>
+        /// Timer for tracking health regen
+        /// </summary>
+        public static Stopwatch healthTimer { get; set; } = new Stopwatch();
+
+        /// <summary>
+        /// Timer for tracking Silk regen
+        /// </summary>
+        public static Stopwatch silkTimer { get; set; } = new Stopwatch();
+        #endregion
+
+        #region Level Up Notification
+        /// <summary>
+        /// Stores the canvas we use to display the text
+        /// </summary>
+        private static GameObject? canvas;
 
         /// <summary>
         /// Handles the celebratory flair when the player's level increases
@@ -79,7 +161,7 @@ namespace SilkAndSong
                                                                             42, TextAnchor.MiddleCenter, dimensions);
             Text text = textPanel.GetComponent<Text>();
             text.font = CanvasUtil.Fonts.TrajanBold;
-            text.color = ConfigSettings.levelUpColor.Value;
+            //text.color = ConfigSettings.levelUpColor.Value;
 
             // Display the text after a short time
             yield return new WaitForSeconds(0.5f);
@@ -100,5 +182,6 @@ namespace SilkAndSong
             yield return new WaitForSeconds(1f);
             UnityEngine.GameObject.Destroy(textPanel);
         }
+        #endregion
     }
 }

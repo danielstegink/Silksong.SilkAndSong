@@ -18,14 +18,14 @@ namespace SilkAndSong.HarmonyPatches
             if (hitInstance.AttackType == AttackTypes.Nail ||
                 hitInstance.AttackType == AttackTypes.NailBeam)
             {
-                float modifier = SharedData.Level * DanielSteginkUtils.Utilities.NotchCosts.NailDamagePerNotch() / 4;
+                float modifier = SharedData.GetNailBonus(SharedData.Level);
                 int bonusDamage = (int)(modifier * hitInstance.DamageDealt);
                 hitInstance.DamageDealt += bonusDamage;
                 //SilkAndSong.instance.Log($"Needle damage increased by {bonusDamage}");
             }
             else // If its not a needle, then it should be either a spell or a tool
             {
-                float modifier = SharedData.Level * DanielSteginkUtils.Utilities.NotchCosts.SpellDamagePerNotch() / 4;
+                float modifier = SharedData.GetSpellBonus(SharedData.Level);
                 int bonusDamage = (int)(modifier * hitInstance.DamageDealt);
                 hitInstance.DamageDealt += bonusDamage;
                 //SilkAndSong.instance.Log($"Spell/Tool damage increased by {bonusDamage}");

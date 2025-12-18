@@ -1,4 +1,4 @@
-﻿namespace SilkAndSong.Helpers
+﻿namespace SilkAndSong.Helpers.GetLevel
 {
     public class EnemyData
     {

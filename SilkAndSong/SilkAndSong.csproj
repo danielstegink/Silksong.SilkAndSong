@@ -23,33 +23,60 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/danielstegink/Silksong.SilkAndSong</RepositoryUrl>
+    <!--<DllPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Hollow Knight Silksong\Hollow Knight Silksong_Data\Managed</DllPath>-->
   </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\*.png" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="..\languages\en.json" Link="en.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.4.21" />
-    <PackageReference Include="DanielSteginkUtils" Version="1.2.0" />
+    <PackageReference Include="DanielSteginkUtils" Version="3.0.0" />
     <PackageReference Include="HarmonyX" Version="2.9.0" />
     <PackageReference Include="Hamunii.BepInEx.AutoPlugin" Version="2.0.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.25.0" PrivateAssets="all" />
     <PackageReference Include="Silksong.CanvasUtil" Version="1.0.0" />
-    <PackageReference Include="UnityEngine.Modules" Version="6000.0.50" IncludeAssets="compile" />
-    <PackageReference Include="Silksong.GameLibs" Version="*-*" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <None Include="../README.md" Pack="True" PackagePath="README.md" />
     <None Include="../thunderstore/icon.png" Pack="True" PackagePath="icon.png" />
+    <None Include="..\.github\workflows\build-publish.yml" Link="build-publish.yml" />
     <None Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
     <None Include="..\Directory.Build.props" Link="Directory.Build.props" />
     <None Include="..\thunderstore\thunderstore.toml" Link="thunderstore.toml" />
+    <None Include="HarmonyPatches\QuestItemManager_SetDisplay.cs" />
+  </ItemGroup>
+  <!--Now, whenever I set the DllPath above, we will ignore this and use the local DLLs below for easy Intellisense-->
+  <ItemGroup Condition="'$(DllPath)' == ''">
+    <PackageReference Include="Silksong.GameLibs" Version="*-*" Publicize="false" />
+    <PackageReference Include="UnityEngine.Modules" Version="6000.0.50" IncludeAssets="compile" Publicize="false" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(DllPath)' != ''">
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(DllPath)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(DllPath)\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayMaker">
+      <HintPath>$(DllPath)\PlayMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="TeamCherry.Localization">
+      <HintPath>$(DllPath)\TeamCherry.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(DllPath)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Target Name="CopyAndPackageMod" AfterTargets="PostBuildEvent">
     <ItemGroup>
       <Binaries Include="$(TargetPath)" LocalDir="/" PackDir="/" />
       <Binaries Include="$(TargetDir)/$(TargetName).pdb" LocalDir="/" PackDir="/" />
       <Binaries Include="$(ProjectDir)/../languages/*.json" LocalDir="/languages" PackDir="languages" />
+      <Binaries Include="$(ProjectDir)/../languages/*.json" PackDir="/plugins/languages/" />
     </ItemGroup>
     <PropertyGroup>
       <ThunderstoreDir>$(ProjectDir)/../thunderstore</ThunderstoreDir>

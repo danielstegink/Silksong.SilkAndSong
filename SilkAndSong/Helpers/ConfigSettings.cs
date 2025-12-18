@@ -10,9 +10,14 @@ namespace SilkAndSong.Helpers
     public static class ConfigSettings
     {
         /// <summary>
-        /// Integrates with UI to set the color of the level-up message
+        /// Integrates with UI to set the initial XP requirement
         /// </summary>
-        public static ConfigEntry<Color> levelUpColor;
+        public static ConfigEntry<int> xpRequirement;
+
+        /// <summary>
+        /// Integrates with UI to set the XP multiplier
+        /// </summary>
+        public static ConfigEntry<float> xpMultiplier;
 
         /// <summary>
         /// Initializes the settings
@@ -21,18 +26,8 @@ namespace SilkAndSong.Helpers
         public static void Initialize(ConfigFile config)
         {
             // Bind set methods to Config
-            LocalisedString name = new LocalisedString($"Mods.{SilkAndSong.Id}", "TXT_NAME");
-            LocalisedString description = new LocalisedString($"Mods.{SilkAndSong.Id}", "TXT_DESC");
-            UnityEngine.Color defaultColor = new UnityEngine.Color(0.2f, 0.2f, 1f);
-            if (name.Exists &&
-                description.Exists)
-            {
-                levelUpColor = config.Bind<UnityEngine.Color>("Modifier", name, defaultColor, description);
-            }
-            else
-            {
-                levelUpColor = config.Bind("Modifier", "Text Color", defaultColor, "The color of the level-up message");
-            }
+            xpRequirement = config.Bind("Modifier", "XP Requirement", 20, "XP required to reach level 1");
+            xpMultiplier = config.Bind("Modifier", "XP Multiplier", 1.8f, "How much to increase XP requirement per level");
         }
     }
 }

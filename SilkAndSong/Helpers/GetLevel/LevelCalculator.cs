@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SilkAndSong.Helpers
+namespace SilkAndSong.Helpers.GetLevel
 {
     public static class LevelCalculator
     {
@@ -17,7 +17,7 @@ namespace SilkAndSong.Helpers
             // Want to reach lv 1 after beating Moss Mother, so 20 XP is a good place for that
             // Don't want to reach lv 10 until near end of game, so multiply requirement w/ each level
             int level = 0;
-            float xpRequirement = 20;
+            float xpRequirement = ConfigSettings.xpRequirement.Value;
             while (totalXp >= xpRequirement)
             {
                 //SilkAndSong.instance.Log($"Next level: {level + 1}");
@@ -26,11 +26,12 @@ namespace SilkAndSong.Helpers
 
                 level++;
                 totalXp -= xpRequirement;
-                xpRequirement *= 1.8f;
+                xpRequirement *= ConfigSettings.xpMultiplier.Value;
             }
             //SilkAndSong.instance.Log($"New Level: {level}");
             //SilkAndSong.instance.Log($"XP to next Level: {xpRequirement - totalXp}");
 
+            SharedData.XpToNextLevel = (int)(xpRequirement - totalXp);
             return level;
         }
 

@@ -1,5 +1,4 @@
-﻿using DanielSteginkUtils.Utilities;
-using HarmonyLib;
+﻿using HarmonyLib;
 
 namespace SilkAndSong.HarmonyPatches
 {
@@ -11,9 +10,7 @@ namespace SilkAndSong.HarmonyPatches
         {
             if (SharedData.Level > 0)
             {
-                // Each level is worth 1/4 of a notch
-                float levelModifier = SharedData.Level / 4;
-                float healthTime = NotchCosts.PassiveHealTime() / levelModifier;
+                float healthTime = SharedData.GetMaskSeconds(SharedData.Level);
                 if (healthTime <= SharedData.healthTimer.ElapsedMilliseconds / 1000)
                 {
                     //SilkAndSong.instance.Log($"Health time reached: {healthTime}");
@@ -21,7 +18,7 @@ namespace SilkAndSong.HarmonyPatches
                     SharedData.healthTimer.Restart();
                 }
 
-                float silkTime = NotchCosts.PassiveSilkTime() / levelModifier;
+                float silkTime = SharedData.GetSilkSeconds(SharedData.Level);
                 if (silkTime <= SharedData.silkTimer.ElapsedMilliseconds / 1000)
                 {
                     //SilkAndSong.instance.Log($"Silk time reached: {silkTime}");

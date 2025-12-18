@@ -9,6 +9,20 @@ namespace SilkAndSong.HarmonyPatches
         [HarmonyPostfix]
         public static void Postfix(HeroController __instance)
         {
+            // Add Silk & Song Wish so player can track their level
+            if (SharedData.quest != null)
+            {
+                QuestCompletionData.Completion completion = new QuestCompletionData.Completion()
+                {
+                    HasBeenSeen = true,
+                    IsAccepted = true,
+                    IsCompleted = false,
+                    WasEverCompleted = false,
+                    CompletedCount = 0,
+                };
+                PlayerData.instance.QuestCompletionData.SetData(SharedData.quest.name, completion);
+            }
+
             // Initialize level when a save is loaded. No need to trigger the fireworks for this, of course
             SharedData.UpdateLevel(false);
 
