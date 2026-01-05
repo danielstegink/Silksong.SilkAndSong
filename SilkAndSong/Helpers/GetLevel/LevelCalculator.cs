@@ -10,7 +10,7 @@ namespace SilkAndSong.Helpers.GetLevel
         /// <returns></returns>
         public static int GetLevel()
         {
-            float totalXp = GetHuntingXp() + GetWishXp();
+            float totalXp = GetXp();
             //SilkAndSong.instance.Log($"Total XP: {totalXp}");
 
             // Player starts at lv 0 (weird, I know)
@@ -32,7 +32,23 @@ namespace SilkAndSong.Helpers.GetLevel
             //SilkAndSong.instance.Log($"XP to next Level: {xpRequirement - totalXp}");
 
             SharedData.XpToNextLevel = (int)(xpRequirement - totalXp);
+
+            // Make sure we aren't going over the max level
+            if (level >= ConfigSettings.maxLevel.Value)
+            {
+                level = ConfigSettings.maxLevel.Value;
+                SharedData.XpToNextLevel = 0;
+            }
             return level;
+        }
+
+        /// <summary>
+        /// Gets the total XP accumulated thus far
+        /// </summary>
+        /// <returns></returns>
+        internal static int GetXp()
+        {
+            return GetHuntingXp() + GetWishXp();
         }
 
         #region Hunting

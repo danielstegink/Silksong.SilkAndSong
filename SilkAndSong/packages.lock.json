@@ -20,9 +20,9 @@
       },
       "DanielSteginkUtils": {
         "type": "Direct",
-        "requested": "[3.0.0, )",
-        "resolved": "3.0.0",
-        "contentHash": "2/WmdpWfpRxSLo/5A6FuvRl4r+SDaj21MHs30BtHboaf7HurJ1YpDibNwOKiL+FqJ0N8bg4hBD8iaeJOEQF7pQ==",
+        "requested": "[4.1.1, )",
+        "resolved": "4.1.1",
+        "contentHash": "HTqPl4mnirzULJogY0Fx5QvpHMr1LQe2OHkvGBUDdlzPgoV8KuZWxeVR+NQcecMveUZ2Fby0IZRQdNifvzay2w==",
         "dependencies": {
           "BepInEx.Core": "5.4.21",
           "HarmonyX": "2.9.0",
@@ -52,17 +52,6 @@
         "resolved": "1.25.0",
         "contentHash": "jOclVb2PVoOdKafuzt3bJ3BHkbjsfuAx+60yqP4zCAhlNa1rwn1Jt05qrmqJgmBY42S08hXbps9KA6QR2Z7aOA=="
       },
-      "Silksong.CanvasUtil": {
-        "type": "Direct",
-        "requested": "[1.0.0, )",
-        "resolved": "1.0.0",
-        "contentHash": "RdsMgqwqjuIe277uk8k5TjDSaDrYN/pErjnnCqy7FJbBxN0INMQmL09CPeVpk/ZcEAnVXsPOaokcnMIfjoa7YA==",
-        "dependencies": {
-          "BepInEx.Core": "5.4.21",
-          "HarmonyX": "2.9.0",
-          "UnityEngine.Modules": "6000.0.50"
-        }
-      },
       "Silksong.GameLibs": {
         "type": "Direct",
         "requested": "[*-*, )",
@@ -74,6 +63,19 @@
         "requested": "[6000.0.50, )",
         "resolved": "6000.0.50",
         "contentHash": "hEFz1r4NGzeYXPY2yPh+/btcnwVB6EnEeRjDMCVNi19PD7VvRMvJeu46x1dNH9jYkT0B/ZXuyMBYiuI7YlRnKw=="
+      },
+      "WishUtil": {
+        "type": "Direct",
+        "requested": "[0.1.2, )",
+        "resolved": "0.1.2",
+        "contentHash": "Q69CobXIYrUJFoo+cpppJaoSAS8qI8DPnbpp8bvXyV+Jq7t6XfhqPVui9jKF5PIXrCN6++fuW16VtlgCVFtsbA==",
+        "dependencies": {
+          "BepInEx.Core": "5.4.21",
+          "DanielSteginkUtils": "4.1.1",
+          "HarmonyX": "2.9.0",
+          "Silksong.GameLibs": "1.2.0-silksong1.0.29315",
+          "UnityEngine.Modules": "6000.0.50"
+        }
       },
       "BepInEx.BaseLib": {
         "type": "Transitive",

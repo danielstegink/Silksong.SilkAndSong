@@ -2,7 +2,6 @@
 	"QUEST_TYPE_NAME": "Adventure",
 	"QUEST_NAME": "Silk & Song",
 	"QUEST_LOC": "Pharloom",
-	"QUEST_DESC": "PLACEHOLDER_QUEST_DESCRIPTION",
 	"QUEST_DESC_1": "Defeat enemies and complete Wishes to increase your Level",
 	"QUEST_DESC_2": "Current Level: CURRENT_LEVEL",
 	"QUEST_DESC_3": "XP to next Level: XP_TO_NEXT_LEVEL",

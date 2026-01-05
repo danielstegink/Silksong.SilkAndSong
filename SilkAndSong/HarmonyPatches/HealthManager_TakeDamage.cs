@@ -8,11 +8,11 @@ namespace SilkAndSong.HarmonyPatches
         [HarmonyPrefix]
         public static void Prefix(ref HitInstance hitInstance)
         {
-            string sourceName = "PLACEHOLDER";
-            if (hitInstance.Source != null)
-            {
-                sourceName = hitInstance.Source.name;
-            }
+            //string sourceName = "PLACEHOLDER";
+            //if (hitInstance.Source != null)
+            //{
+            //    sourceName = hitInstance.Source.name;
+            //}
             //SilkAndSong.instance.Log($"Enemy taking {hitInstance.DamageDealt} damage (Type {hitInstance.AttackType.ToString()}) from {sourceName}");
 
             if (hitInstance.AttackType == AttackTypes.Nail ||

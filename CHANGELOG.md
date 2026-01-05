@@ -1,4 +1,8 @@
-# Changelog 
+# Changelog
+# 3.0.0
+- Modified to use WishUtil
+- Effects no longer persist while game is paused
+
 ## 2.0.0
 - Made XP requirement and scale configurable from menu
 - Replaced screen-shake notification with a custom Wish. This 
