@@ -1,4 +1,7 @@
 # Changelog
+# 3.1.0
+- Modified quest sprite to have a white background
+
 # 3.0.0
 - Modified to use WishUtil
 - Effects no longer persist while game is paused
