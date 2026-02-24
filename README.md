@@ -35,8 +35,8 @@ traditionally give XP.
 
 Wishes are divided much the same way as enemies. They 
 have 3 levels of difficulty giving 25, 50 and 100 XP, 
-which then multiplied by what Act you would most 
-likely complete the given Wish. For example, the 
+which is then multiplied by the Act in which you would 
+most likely complete the given Wish. For example, the 
 Flintbeetles Wish gives 25 XP, but Great Taste of 
 Pharloom gives 200.
 
@@ -47,8 +47,10 @@ Wishes, count for each time they were completed.
 ### XP Requirements
 Levelling up is a slow process; each level requires 
 significantly more XP than the last. You can reach 
-level 1 as early as your first boss, but you probably 
-won't reach level 10 until Act 3.
+level 1 as early as the first boss, but you probably 
+won't reach level 10 until Act 3. 
+
+You can customize this via the Bepinex menu (F1).
 
 ## Perks
 At each level, Hornet gets the following bonuses:
