@@ -66,9 +66,9 @@
       },
       "WishUtil": {
         "type": "Direct",
-        "requested": "[0.1.2, )",
-        "resolved": "0.1.2",
-        "contentHash": "Q69CobXIYrUJFoo+cpppJaoSAS8qI8DPnbpp8bvXyV+Jq7t6XfhqPVui9jKF5PIXrCN6++fuW16VtlgCVFtsbA==",
+        "requested": "[0.2.0, )",
+        "resolved": "0.2.0",
+        "contentHash": "FnTx6kVHHro+ozrG8VV474GHNg0VCHbBeFkTnH+v4ORjvo0K5n4lyCT68Du6r4aeCiWRypmblRIkc4QpPQTmzw==",
         "dependencies": {
           "BepInEx.Core": "5.4.21",
           "DanielSteginkUtils": "4.1.1",

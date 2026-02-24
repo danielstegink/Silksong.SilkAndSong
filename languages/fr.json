@@ -1,0 +1,13 @@
+{
+	"QUEST_TYPE_NAME": "Aventure",
+	"QUEST_NAME": "Soie et Chant",
+	"QUEST_LOC": "Pharloom",
+	"QUEST_DESC_1": "Éliminez des ennemis et accomplissez des Souhaits pour gagner des niveaux",
+	"QUEST_DESC_2": "Niveau actuel : CURRENT_LEVEL",
+	"QUEST_DESC_3": "XP avant le prochain niveau : XP_TO_NEXT_LEVEL",
+	"QUEST_DESC_4": "Bonus actuels",
+	"QUEST_DESC_5": "+NAIL_BONUS % dégâts (Aiguille)",
+	"QUEST_DESC_6": "+SPELL_BONUS % dégâts (Sorts/Outils)",
+	"QUEST_DESC_7": "Récupérez 1 Masque toutes les MASK_SECONDS secondes",
+	"QUEST_DESC_8": "Récupérez 1 Soie toutes les SILK_SECONDS secondes"
+}

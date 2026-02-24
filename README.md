@@ -66,3 +66,5 @@ So at level 4, Hornet will have:
 ## Special Thanks
 - Logo and Wish icon by MsGreen419
 - Samihamer1 and Flibber for code advice
+- German localisation by the.ant.57
+- French localisation by MistDZX

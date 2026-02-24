@@ -1,4 +1,7 @@
 # Changelog
+# 3.2.0
+- Added localisation support for French and German
+
 # 3.1.0
 - Modified quest sprite to have a white background
 

@@ -1,0 +1,13 @@
+{
+	"QUEST_TYPE_NAME": "Abenteuer",
+	"QUEST_NAME": "Seide und Gesang",
+	"QUEST_LOC": "Pharloom",
+	"QUEST_DESC_1": "Besiege Gegner um dein Level zu erhöhen",
+	"QUEST_DESC_2": "Aktuelles Level: CURRENT_LEVEL",
+	"QUEST_DESC_3": "XP bis zum nächsten Level: XP_TO_NEXT_LEVEL",
+	"QUEST_DESC_4": "Aktuelle Boni",
+	"QUEST_DESC_5": "+NAIL_BONUS% Nadel Schaden",
+	"QUEST_DESC_6": "+SPELL_BONUS% Fähigkeiten/Werkzeug schaden",
+	"QUEST_DESC_7": "1 Maske alle MASK_SECONDS sekunden",
+	"QUEST_DESC_8": "1 Faden alle SILK_SECONDS sekunden"
+}
