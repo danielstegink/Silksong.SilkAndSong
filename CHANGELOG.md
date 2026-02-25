@@ -1,4 +1,7 @@
 # Changelog
+## 3.2.2
+- Updated French localisation
+
 ## 3.2.0
 - Added localisation support for French and German
 

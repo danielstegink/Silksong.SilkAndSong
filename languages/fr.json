@@ -2,7 +2,7 @@
 	"QUEST_TYPE_NAME": "Aventure",
 	"QUEST_NAME": "Soie et Chant",
 	"QUEST_LOC": "Pharloom",
-	"QUEST_DESC_1": "Éliminez des ennemis et accomplissez des Souhaits pour gagner des niveaux",
+	"QUEST_DESC_1": "Éliminez des ennemis et exaucez des Souhaits pour gagner des niveaux",
 	"QUEST_DESC_2": "Niveau actuel : CURRENT_LEVEL",
 	"QUEST_DESC_3": "XP avant le prochain niveau : XP_TO_NEXT_LEVEL",
 	"QUEST_DESC_4": "Bonus actuels",

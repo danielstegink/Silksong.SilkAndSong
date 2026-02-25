@@ -32,7 +32,9 @@
     <Content Remove="C:\Users\danie\.nuget\packages\wishutil\0.1.2\contentFiles\any\netstandard2.1\en.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\languages\en.json" Link="Deployment\en.json" />
+    <Content Include="..\languages\de.json" Link="Deployment\Languages\de.json" />
+    <Content Include="..\languages\en.json" Link="Deployment\Languages\en.json" />
+    <Content Include="..\languages\fr.json" Link="Deployment\Languages\fr.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
@@ -74,7 +76,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Deployment\" />
+    <Folder Include="Deployment\Languages\" />
   </ItemGroup>
   <Target Name="CopyAndPackageMod" AfterTargets="PostBuildEvent">
     <ItemGroup>
