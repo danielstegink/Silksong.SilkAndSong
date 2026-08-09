@@ -35,6 +35,7 @@
     <Content Include="..\languages\de.json" Link="Deployment\Languages\de.json" />
     <Content Include="..\languages\en.json" Link="Deployment\Languages\en.json" />
     <Content Include="..\languages\fr.json" Link="Deployment\Languages\fr.json" />
+    <Content Include="..\languages\ru.json" Link="Deployment\Languages\ru.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />

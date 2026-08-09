@@ -1,0 +1,13 @@
+﻿{
+  "QUEST_TYPE_NAME": "Приключение",
+  "QUEST_NAME": "Песнь & Шелк",
+  "QUEST_LOC": "Фарлум",
+  "QUEST_DESC_1": "Побеждайте врагов и выполняйте Желания для повышения уровня",
+  "QUEST_DESC_2": "Текущий уровень: CURRENT_LEVEL",
+  "QUEST_DESC_3": "Опыт до следующего уровня: XP_TO_NEXT_LEVEL",
+  "QUEST_DESC_4": "Текущие бонусы",
+  "QUEST_DESC_5": "+NAIL_BONUS% урон иглы",
+  "QUEST_DESC_6": "+SPELL_BONUS% урон заклинаний/инструментов",
+  "QUEST_DESC_7": "1 Маска каждые MASK_SECONDS секунд",
+  "QUEST_DESC_8": "1 Шелк каждыек SILK_SECONDS секунд"
+}

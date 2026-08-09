@@ -1,4 +1,7 @@
 # Changelog
+## 3.3.0
+- Added localisation support for Russian
+
 ## 3.2.2
 - Updated French localisation
 
